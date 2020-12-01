@@ -6,6 +6,8 @@ import next from '../assets/images/next.png'
 import { scroll_To } from '../components/NavBar'
 import ServiceLeftContainer from '../components/Service#1/ServiceLeftContainer'
 import ServiceRightContainer from '../components/Service#1/ServiceRightContainer'
+import Service2LeftContainer from '../components/Service#2/Service2LeftContainer'
+import Service2RightContainer from '../components/Service#2/Service2RightContainer'
 const Home = () => {
     return (
         <>
@@ -17,6 +19,10 @@ const Home = () => {
         <Container id="Service#1">
             <ServiceLeftContainer />
             <ServiceRightContainer />
+        </Container>
+        <Container id="Service#2">
+            <Service2LeftContainer />
+            <Service2RightContainer />
         </Container>
         </>
     )

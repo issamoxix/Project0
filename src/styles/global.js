@@ -8,9 +8,7 @@ export const Global = createGlobalStyle`
         scroll-behavior:smooth;
         
     }
-    #root {
-        overflow-x:hidden;
-    }
+   
     h1 {
         font-family: 'IBM Plex Serif', serif;
         font-weight:bold;
@@ -27,6 +25,17 @@ export const Global = createGlobalStyle`
         }
         to {
             bottom:6px;
+        }
+    }
+    @keyframes shodk {
+        from {
+            transform:translateY(-3px)
+        }
+        50% {
+            transform:translateY(6px)
+        }
+        to {
+            transform:translateY(-3px)
         }
     }
 `
