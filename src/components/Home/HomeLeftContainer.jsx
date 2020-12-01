@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const HomeLeftContainer = () => {
     return (
         <Container>
-            <Section>
+            <Section data-aos="fade-right" >
             <Title>
             The Service you Need !!
             </Title>
@@ -31,6 +31,7 @@ const Container = styled.div`
 `
 const Section = styled.section`
     margin:0 2rem;
+    overflow-x:hidden;
 `
 const Title = styled.h1`
     color:#fff;

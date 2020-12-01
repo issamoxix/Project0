@@ -1,9 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 
+export const scroll_To = (to)=>{
+    const elem = document.getElementById(to)
+    elem.scrollIntoView()
+}
+
 const NavBar = () => {
+    const [Bg,setBg] = useState(false)
+    window.onscroll = () => setBg(true)
+    
     return (
-        <Container>
+        <Container id="NavBar" bg={Bg} >
             <Wrapper>
             <Sec>
            <Logo>
@@ -12,14 +20,14 @@ const NavBar = () => {
             </Sec>
 
             <RightSec>
-                <Subscribe>Subscribe</Subscribe>
+                <Subscribe bg={Bg} >Subscribe</Subscribe>
                 <EmailAdd type="text" placeholder="Email Address" />
             </RightSec>
             </Wrapper>
             <Listitems>
-                <Itemlist>Home</Itemlist>
+                <Itemlist onClick={() => scroll_To('Home')} >Home</Itemlist>
                 <Itemlist>About</Itemlist>
-                <Itemlist>Services</Itemlist>
+                <Itemlist onClick={() => scroll_To('Service#1')} >Services</Itemlist>
             </Listitems>
         </Container>
     )
@@ -30,10 +38,25 @@ const Container = styled.div`
     width: 100%;
     position:fixed;
     color:#000;
-    
+    background:${props => {
+        if(props.bg === true) return ({theme}) => theme.p100
+        return 'transparent'
+    }};
+    ${props=>{
+        if(props.bg === true)
+        {
+            return `
+                color:#fff;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                
+            `
+        }
+    }}
     display:flex;
     justify-content:space-between;
     padding:12px;
+    z-index:2;
+    transition:all 0.2s linear;
 `
 const Logo = styled.h2`
     color:${({theme})=>theme.p300};
@@ -57,18 +80,28 @@ const Itemlist = styled.li`
     display:inline-block;
     margin:0 1rem;
     font-family:${({theme})=>theme.gF};
-    font-weight: 300;
+    font-weight: bold;
+    transition:all 0.2s linear;
     cursor:pointer;
+    &:hover {
+        color:${({theme})=>theme.p300};
+    }
 `
 const Subscribe = styled.button`
     background-color:${({theme})=>theme.p200};
     border-color:transparent;
     color:#fff;
     border-radius:3px;
-    padding:7px;
+    padding: 7px 36px;
     transition:all 0.2s linear;
     cursor:pointer;
     font-weight:700;
+    ${props=> {
+        if(props.bg === true) return `
+            background:transparent;
+            border: 2px solid #31705B;
+        `
+    }}
     &:hover {
         background-color:${({theme})=>theme.p100};
         box-shadow:0px 4px 4px rgba(0,0,0,0.25);
@@ -87,12 +120,15 @@ const EmailAdd = styled.input`
     padding:7px;
     font-weight:bold;
     transition:all 0.2s linear;
+    color:#fff;
     &:focus{
         border-color:${({theme})=>theme.p300};
+        border-color:transparent;
+        background-color:${({theme})=>theme.p200};
         
     }
     &::placeholder {
-        color:#e1e1e1;
+        color:#e8e8e8;
     }
 `
 const Wrapper = styled.div`

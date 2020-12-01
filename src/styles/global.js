@@ -5,6 +5,11 @@ export const Global = createGlobalStyle`
         padding:0;
         box-sizing:border-box;
         outline:none;
+        scroll-behavior:smooth;
+        
+    }
+    #root {
+        overflow-x:hidden;
     }
     h1 {
         font-family: 'IBM Plex Serif', serif;
