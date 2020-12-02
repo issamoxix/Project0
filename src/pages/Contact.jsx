@@ -26,7 +26,7 @@ const Contact = () => {
             </LeftContainer>
             <RightContainer>
             </RightContainer>
-                <Form>
+                <Form data-aos="flip-down">
                     <Text placeholder="Name" type="text" />
                     <Text placeholder="Email Addresse" type="text" />
                     <Text placeholder="Subject" type="text" />
