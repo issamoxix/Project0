@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const scroll_To = (to)=>{
     const elem = document.getElementById(to)
-    elem.scrollIntoView()
+    if(document.location.pathname === '/') elem.scrollIntoView()
+    
 }
 
 const NavBar = () => {
     const [Bg,setBg] = useState(false)
-    window.onscroll = () => setBg(true)
+    window.onscroll = () => window.scrollY !== 0?setBg(true):setBg(false)
     
     return (
         <Container id="NavBar" bg={Bg} >
@@ -25,8 +27,13 @@ const NavBar = () => {
             </RightSec>
             </Wrapper>
             <Listitems>
+                <Link to="/">
                 <Itemlist onClick={() => scroll_To('Home')} >Home</Itemlist>
+                </Link>
                 <Itemlist>About</Itemlist>
+                <Link to="/contact">
+                <Itemlist>Contact Us</Itemlist>
+                </Link>
                 <Itemlist onClick={() => scroll_To('Service#1')} >Services</Itemlist>
             </Listitems>
         </Container>
@@ -48,7 +55,9 @@ const Container = styled.div`
             return `
                 color:#fff;
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                
+                ${Itemlist} {
+                    color:#fff;
+                }
             `
         }
     }}
@@ -82,6 +91,7 @@ const Itemlist = styled.li`
     font-family:${({theme})=>theme.gF};
     font-weight: bold;
     transition:all 0.2s linear;
+    color:#868686;
     cursor:pointer;
     &:hover {
         color:${({theme})=>theme.p300};
