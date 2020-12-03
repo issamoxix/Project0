@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import auto from '../../assets/images/auto.png'
 
 const Service2LeftContainer = () => {
     return (
