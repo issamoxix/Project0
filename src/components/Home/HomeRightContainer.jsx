@@ -13,6 +13,15 @@ const Container = styled.div`
     flex:0.5;
     display:flex;
     align-items:center;
+    @media (max-width: 600px) {
+    justify-content:center;
+    position:absolute;
+    bottom:5%;
+    left:50%;
+    transform:translateX(-50%);
+    height:42%;
+    width:90%;
+  }
     
 `
 const HeroPic = styled.img`
@@ -20,5 +29,10 @@ const HeroPic = styled.img`
     right: 0;
     height: 85%;
     overflow-x:hidden;
+    @media (max-width: 600px) {
+    position:initial;
+    height: 100%;
+
+  }
 `
 export default HomeRightContainer

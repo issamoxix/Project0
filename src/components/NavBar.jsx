@@ -1,24 +1,32 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import Dm from '../assets/images/Dmenu.png';
 
 export const scroll_To = (to)=>{
     const elem = document.getElementById(to)
     if(document.location.pathname === '/') elem.scrollIntoView()
+    
     
 }
 
 const NavBar = () => {
     const [Bg,setBg] = useState(false)
     window.onscroll = () => window.scrollY !== 0?setBg(true):setBg(false)
-    
+    const [click,setClick] = useState(false);
+    const [serviceClick ,setServiceClick] = useState(false)
     return (
+        <>
         <Container id="NavBar" bg={Bg} >
             <Wrapper>
             <Sec>
-           <Logo>
-               Project0
-           </Logo>
+            <Link to="/">
+                <Logo onClick={() => scroll_To('Home')} >Project0</Logo>
+               </Link>
+           <MenuM onClick={() => {
+               setClick(!click)
+               setServiceClick(serviceClick && false)
+           }} src={Dm} />
             </Sec>
 
             <RightSec>
@@ -37,6 +45,36 @@ const NavBar = () => {
                 <Itemlist onClick={() => scroll_To('Service#1')} >Services</Itemlist>
             </Listitems>
         </Container>
+        <MenuMobileContainer clk={click} >
+            <MenuMobileList>
+                <Link to='/'>
+                <MenuMobileListItem onClick={() => {
+                    scroll_To('Home')
+                    setClick(!click)
+                }} >Home</MenuMobileListItem>
+                </Link>
+                <MenuMobileListItem onClick={()=>setServiceClick(!serviceClick)} >Services </MenuMobileListItem>
+                <Link to="/contact">
+                    <MenuMobileListItem onClick={()=> setClick(!click)} >Contact Us</MenuMobileListItem>
+                    </Link>
+                <MenuMobileListItem onClick={()=> setClick(!click)} >About</MenuMobileListItem>
+            </MenuMobileList>
+        </MenuMobileContainer>
+        <ServicesMenu Servicecc={serviceClick} >
+            <MenuMobileList>
+                <MenuMobileListItem onClick={() => {
+                    scroll_To('Service#1')
+                    setServiceClick(!serviceClick)
+                    setClick(false)
+                }} >Create Website</MenuMobileListItem>
+                <MenuMobileListItem onClick={() => {
+                    scroll_To('Service#2')
+                    setServiceClick(!serviceClick)
+                    setClick(false)
+                }} >Automate</MenuMobileListItem>
+            </MenuMobileList>
+        </ServicesMenu>
+        </>
     )
 }
 const Container = styled.div`
@@ -66,17 +104,29 @@ const Container = styled.div`
     padding:12px;
     z-index:2;
     transition:all 0.2s linear;
+    @media(max-width:600px){
+        z-index:4;
+    }
 `
 const Logo = styled.h2`
     color:${({theme})=>theme.p300};
 `
 const Sec = styled.section`
     flex:0.5;
+    @media(max-width:600px){
+        flex:1;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
 `
 const RightSec = styled.section`
     flex:0.5;
     display:flex;
     flex-direction:row-reverse;
+    @media (max-width: 600px) {
+    display:none;
+  }
 `
 const Listitems = styled.ul`
     list-style:none;
@@ -84,6 +134,9 @@ const Listitems = styled.ul`
     left:50%;
     top:50%;
     transform: translate(-50%,-50%);
+    @media (max-width: 600px) {
+    display:none;
+  }
 `   
 const Itemlist = styled.li`
     display:inline-block;
@@ -145,5 +198,59 @@ const Wrapper = styled.div`
     margin:0 2rem;
     width:100%;
     display:flex;
+`
+const MenuM = styled.img`
+    display:none;
+    @media(max-width:600px){
+        display:initial;
+        height:70%;
+        
+    }
+    
+`
+const MenuMobileContainer = styled.div`
+    height:100vh;
+    width:100vw;
+    z-index:3;
+    background-color:${({theme})=>theme.p500};
+    position:fixed;
+    transition:all 0.2s linear;
+    transform:translateX(-100%);
+    display:flex;
+
+    align-items:center;
+    ${props=>props.clk?"transform:translateX(0%);":"transform:translateX(-100%);"}
+`
+const MenuMobileList = styled.ul`
+    list-style:none;
+`
+const MenuMobileListItem = styled.li`
+    width: 100vw;
+    text-align: center;
+    font-family: 'IBM Plex Serif',serif;
+    font-weight: 700;
+    background-color: #2DEBAB;
+    color: #fff;
+    border-radius: 7px;
+    padding: 15px;
+    height: 20vh;
+    display: flex;
+    margin: .1rem 0 .1rem 0;
+    box-shadow: rgb(45 235 171) 0px 0px 5px;
+    justify-content: center;
+    align-items: center;
+`
+const ServicesMenu = styled.div`
+    display:flex;
+    align-items:center;
+    z-index:3;
+    background-color:black;
+    transition:all 0.2s linear;
+    position:fixed;
+    height:100vh;
+    width:100vw;
+    background-color:${({theme})=>theme.p400};
+    ${props=>props.Servicecc?"transform:translateX(0%);":"transform:translateX(100%);"}
+    
 `
 export default NavBar

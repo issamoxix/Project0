@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import SSx from '../../assets/images/S1.png'
 const ServiceRightContainer = () => {
     return (
         <Container>
@@ -27,12 +27,22 @@ const Container = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: rgba(137, 217, 190, 0.2);
     z-index:1;
+    @media(max-width:600px){
+        flex:1;
+        background-image:url(${SSx});
+        background-size:cover;
+        background-repeat:no-repeat;
+    }
 `
 const Title = styled.h1`
     color: #000;
     font-weight: bold;
     font-style: italic;
     font-size: 40px;
+    @media(max-width:600px){
+        font-size:36px;
+
+    }
 `
 const Para  = styled.p`
     color: #000;
@@ -40,10 +50,21 @@ const Para  = styled.p`
     margin: 2rem 0;
     width: 90%;
     font-size: 27px;
+    @media(max-width:600px){
+        width: 100%;
+        font-size:20px;
+    }
 `
 const Section = styled.section`
     margin:0 2rem;
     position:relative;
+    @media(max-width:600px){
+        background:#2debab8f;
+        padding: 12px;
+        border-radius: 10px;
+        margin:0 1rem 0 1rem;
+    }
+    
 `
 const GetMoreButton = styled.button`
     background: #89D9BE;
@@ -59,6 +80,9 @@ const GetMoreButton = styled.button`
     cursor:pointer; 
     &:hover {
         transform:translateY(-3px);
+    }
+    @media(max-width:600px){
+        position:initial;
     }
 `
 export default ServiceRightContainer

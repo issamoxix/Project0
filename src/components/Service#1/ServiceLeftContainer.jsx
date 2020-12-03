@@ -12,6 +12,10 @@ const ServiceLeftContainer = () => {
 const Container = styled.div`
     flex:0.5;
     z-index:0;
+    @media(max-width:600px){
+        flex:1;
+        display:none;
+    }
 `
 const HeroPic = styled.img`
     position:absolute;

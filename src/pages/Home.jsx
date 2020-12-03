@@ -32,6 +32,10 @@ const Container = styled.div`
     display:flex;
     justify-content:space-between;
     position:relative;
+    @media (max-width: 600px) {
+    width:100vw;
+    flex-direction:column;
+  }
 `
 const NextPic = styled.img`
     position:absolute;

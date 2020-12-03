@@ -15,6 +15,8 @@ export const Global = createGlobalStyle`
     }
     h2,h3,h4,h5,input,button,p {
         font-family: 'IBM Plex Serif', serif;
+    }a {
+        text-decoration:none;
     }
     @keyframes Hovefloat {
         from {

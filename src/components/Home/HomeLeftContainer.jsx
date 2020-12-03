@@ -28,10 +28,18 @@ const Container = styled.div`
     display:flex;
     align-items:center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   @media(max-width:600px){
+       flex:1;
+       align-items:start;
+   }
 `
 const Section = styled.section`
     margin:0 2rem;
     overflow-x:hidden;
+    @media (max-width: 600px) {
+    text-align:center;
+    margin-top:6rem;
+  }
 `
 const Title = styled.h1`
     color:#fff;
@@ -43,6 +51,9 @@ const Para  = styled.p`
     font-weight:400;
     margin:2rem 0;
     width:90%;
+    @media (max-width: 600px) {
+    width:100%;
+  }
 `
 const AboutButton = styled.button`
     background-color:${({theme})=>theme.p300};

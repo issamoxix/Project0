@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import auto from '../../assets/images/auto.png'
 
 const Service2LeftContainer = () => {
     return (
@@ -24,12 +25,22 @@ const Container = styled.div`
     flex:0.5;
     display:flex;
     align-items:center;
+    @media(max-width:600px){
+        flex:1;
+        justify-content:center;
+        height:100vh;
+ 
+    }
 `
 const Title = styled.h1`
     color: #000;
     font-weight: bold;
     font-style: italic;
     font-size: 37px;
+    @media(max-width:600px){
+    font-size: 27px;
+        
+    }
 `
 const Para  = styled.p`
     color: #000;
@@ -37,6 +48,11 @@ const Para  = styled.p`
     margin: 2rem 0;
     width: 90%;
     font-size: 27px;
+    @media(max-width:600px){
+        
+        font-size: 20px;
+        width: 100%;
+    }
 `
 const GetMore = styled.h2`
     font-weight: 500;
@@ -53,5 +69,8 @@ const GetMore = styled.h2`
 const Section = styled.section`
     margin:0 2rem;
     position:relative;
+    @media(max-width:600px){
+        height:50%;
+    }
 `
 export default Service2LeftContainer
