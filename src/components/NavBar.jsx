@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Dm from '../assets/images/Dmenu.png';
+import Em from '../assets/images/Emenu.png';
 
 export const scroll_To = (to)=>{
     const elem = document.getElementById(to)
@@ -26,7 +27,7 @@ const NavBar = () => {
            <MenuM onClick={() => {
                setClick(!click)
                setServiceClick(serviceClick && false)
-           }} src={Dm} />
+           }} src={click?Dm:Em} />
             </Sec>
 
             <RightSec>
@@ -201,6 +202,7 @@ const Wrapper = styled.div`
 `
 const MenuM = styled.img`
     display:none;
+    transition:all 0.2s linear;
     @media(max-width:600px){
         display:initial;
         height:70%;
