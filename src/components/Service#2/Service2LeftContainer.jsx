@@ -40,6 +40,10 @@ const Title = styled.h1`
     font-size: 27px;
         
     }
+    @media(max-width:1000px){
+        width: 100%;
+        font-size: 24px;
+    }
 `
 const Para  = styled.p`
     color: #000;
@@ -51,6 +55,10 @@ const Para  = styled.p`
         
         font-size: 20px;
         width: 100%;
+    }
+    @media(max-width:1000px){
+        width: 100%;
+        font-size: 18px;
     }
 `
 const GetMore = styled.h2`

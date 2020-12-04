@@ -105,7 +105,7 @@ const Container = styled.div`
     padding:12px;
     z-index:2;
     transition:all 0.2s linear;
-    @media(max-width:600px){
+    @media(max-width:900px){
         z-index:4;
     }
 `
@@ -114,7 +114,7 @@ const Logo = styled.h2`
 `
 const Sec = styled.section`
     flex:0.5;
-    @media(max-width:600px){
+    @media(max-width:900px){
         flex:1;
         display:flex;
         justify-content:space-between;
@@ -125,7 +125,7 @@ const RightSec = styled.section`
     flex:0.5;
     display:flex;
     flex-direction:row-reverse;
-    @media (max-width: 600px) {
+    @media (max-width: 900px) {
     display:none;
   }
 `
@@ -135,7 +135,7 @@ const Listitems = styled.ul`
     left:50%;
     top:50%;
     transform: translate(-50%,-50%);
-    @media (max-width: 600px) {
+    @media (max-width: 900px) {
     display:none;
   }
 `   
@@ -203,25 +203,12 @@ const Wrapper = styled.div`
 const MenuM = styled.img`
     display:none;
     transition:all 0.2s linear;
-    @media(max-width:600px){
+    @media(max-width:900px){
         display:initial;
         height:70%;
         
     }
     
-`
-const MenuMobileContainer = styled.div`
-    height:100vh;
-    width:100vw;
-    z-index:3;
-    background-color:${({theme})=>theme.p500};
-    position:fixed;
-    transition:all 0.2s linear;
-    transform:translateX(-100%);
-    display:flex;
-
-    align-items:center;
-    ${props=>props.clk?"transform:translateX(0%);":"transform:translateX(-100%);"}
 `
 const MenuMobileList = styled.ul`
     list-style:none;
@@ -242,8 +229,24 @@ const MenuMobileListItem = styled.li`
     justify-content: center;
     align-items: center;
 `
+// Mobile container hide in the left side of the screen 
+const MenuMobileContainer = styled.div`
+    height:100vh;
+    width:100vw;
+    z-index:3;
+    background-color:${({theme})=>theme.p500};
+    position:fixed;
+    transition:all 0.2s linear;
+    transform:translateX(-100%);
+    align-items:center;
+    ${props=>props.clk?"transform:translateX(0%);":"transform:translateX(-100%);"}
+    display:none;
+    @media(max-width:900px){
+        display:flex;
+    }
+`
+// Servcei Menu container hide in the right side of the screen 
 const ServicesMenu = styled.div`
-    display:flex;
     align-items:center;
     z-index:3;
     background-color:black;
@@ -253,6 +256,10 @@ const ServicesMenu = styled.div`
     width:100vw;
     background-color:${({theme})=>theme.p400};
     ${props=>props.Servicecc?"transform:translateX(0%);":"transform:translateX(100%);"}
+    display:none;
+    @media(max-width:900px){
+        display:flex;
+    }
     
 `
 export default NavBar

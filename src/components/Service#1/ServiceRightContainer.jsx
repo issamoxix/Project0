@@ -43,6 +43,10 @@ const Title = styled.h1`
         font-size:36px;
 
     }
+    @media(max-width:1000px){
+        font-size:23px;
+        
+    }
 `
 const Para  = styled.p`
     color: #000;
@@ -50,6 +54,10 @@ const Para  = styled.p`
     margin: 2rem 0;
     width: 90%;
     font-size: 27px;
+    @media(max-width:1000px){
+        font-size:15px;
+        width:100%;
+    }
     @media(max-width:600px){
         width: 100%;
         font-size:20px;
@@ -74,7 +82,7 @@ const GetMoreButton = styled.button`
     font-size: 20px;
     font-weight: 500;
     position: absolute;
-    right: 77px;
+    right: 16%;
     box-shadow:0px 4px 4px rgba(0,0,0,0.25);
     transition:all 0.2s linear;
     cursor:pointer; 
