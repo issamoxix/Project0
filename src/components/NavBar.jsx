@@ -29,12 +29,6 @@ const NavBar = () => {
                setServiceClick(serviceClick && false)
            }} src={click?Dm:Em} />
             </Sec>
-
-            <RightSec>
-                <Subscribe bg={Bg} >Subscribe</Subscribe>
-                <EmailAdd type="text" placeholder="Email Address" />
-            </RightSec>
-            </Wrapper>
             <Listitems>
                 <Link to="/">
                 <Itemlist onClick={() => scroll_To('Home')} >Home</Itemlist>
@@ -47,6 +41,12 @@ const NavBar = () => {
                 </Link>
                 <Itemlist onClick={() => scroll_To('Service#1')} >Services</Itemlist>
             </Listitems>
+            <RightSec>
+                <Subscribe bg={Bg} >Subscribe</Subscribe>
+                <EmailAdd type="text" placeholder="Email Address" />
+            </RightSec>
+            </Wrapper>
+           
         </Container>
         <MenuMobileContainer clk={click} >
             <MenuMobileList>
@@ -117,7 +117,7 @@ const Logo = styled.h2`
     color:${({theme})=>theme.p300};
 `
 const Sec = styled.section`
-    flex:0.5;
+    flex:0.3;
     @media(max-width:900px){
         flex:1;
         display:flex;
@@ -126,7 +126,7 @@ const Sec = styled.section`
     }
 `
 const RightSec = styled.section`
-    flex:0.5;
+    flex:0.3;
     display:flex;
     flex-direction:row-reverse;
     @media (max-width: 900px) {
@@ -135,10 +135,9 @@ const RightSec = styled.section`
 `
 const Listitems = styled.ul`
     list-style:none;
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform: translate(-50%,-50%);
+    display:flex;
+    align-items:center;
+    flex:0.3;
     @media (max-width: 900px) {
     display:none;
   }
@@ -203,6 +202,7 @@ const Wrapper = styled.div`
     margin:0 2rem;
     width:100%;
     display:flex;
+    justify-content:space-between;
 `
 const MenuM = styled.img`
     display:none;

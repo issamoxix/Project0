@@ -5,3 +5,10 @@ export let resz = (Psx=PicSize)=> {
       
     })
 }
+export let PicSizec = (per) => window.innerWidth * per / 100
+export let resc = (Psx=PicSize, p)=> {
+    window.addEventListener('resize',()=>{
+        Psx = window.innerWidth * p / 100
+      
+    })
+}

@@ -2,8 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import bg from '../assets/images/about-bg.jpg'
 import srcx from '../assets/images/abt.png';
+import { resc,PicSizec } from '../utils/Resize';
+const per = 12
+PicSizec(per)
+resc(PicSizec(per),per)
 
 const About = () => {
+    
     return (
         <Container>
             <Wrapper>
@@ -32,6 +37,10 @@ const Container = styled.div`
     height:100vh;
     background-size:cover;
     background-repeat:no-repeat;
+    @media(max-width:600px){
+        width:100vw;
+        background-position:center;
+    }
 `
 const Wrapper = styled.div`
     height:100%;
@@ -46,6 +55,10 @@ const AboutTitle = styled.h1`
     font-size:6rem;
     color:${({theme})=>theme.aboutitle};
     text-decoration: underline;
+    @media(max-width:750px){
+        font-size:${PicSizec(per)}px;
+        margin-top:-2rem;
+    }
 `
 const AboutContainer = styled.div`
     display:flex;
@@ -57,12 +70,20 @@ const AboutEle = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
+    @media(max-width:750px){
+        display:none;
+    }
 `
 const AboutBody = styled.div`
     width:50%;
     display:flex;
     
     align-items:center;
+    @media(max-width:750px){
+        width:100%;
+        text-align:center;
+        margin:0 1rem 0 1rem;
+    }
 `
 const Para = styled.p`
     font-weight:400;
@@ -70,8 +91,13 @@ const Para = styled.p`
     @media(max-width:1000px){
         width:88%;
     }
+    @media(max-width:750px){
+        width:100%;
+        
+    }
 `
 const Eles = styled.img`
     height:50%;
+    
 `
 export default About

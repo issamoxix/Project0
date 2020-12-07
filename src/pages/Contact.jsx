@@ -85,6 +85,9 @@ const BodyT = styled.p`
 `
 const Section = styled.section`
     margin: 0 2rem;
+    @media(max-width:1000px){
+        display:none;
+    }
 `
 const Det = styled.h4`
     color:#fff;
@@ -103,6 +106,12 @@ const Form = styled.div`
     width: 44%;
     left: 39%;
     bottom: 10%;
+    transition:all 0.2s linear;
+    box-shadow:0px 4px 4px rgba(0,0,0,0.25);
+    @media(max-width:1000px){
+        left:0;
+        width:100%;
+    }
     
 `
 const Text = styled.input`
@@ -133,5 +142,19 @@ const SendButton = styled.button`
     align-self: start;
     margin-left: 3.6rem;
     cursor:pointer;
+    transition:all 0.2s linear;
+    &:hover {
+        color:#fff;
+        background-color: ${({theme})=>theme.p100};
+        border-color:transparent;
+    }
+    @media(max-width:1000px){
+        padding: 6px 31%;
+        position:absolute; 
+        left:50%;
+        bottom:3%;
+        margin-left: 0;
+        transform:translateX(-50%);
+    }
 `
 export default Contact
