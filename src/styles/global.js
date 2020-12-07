@@ -47,5 +47,7 @@ export const globalTheme = {
     p300:'#31705B',
     p400:'#89D9BE',
     p500:'#BAFFE8',
-    gF:"'IBM Plex Serif', serif" //GlobalFont
+    gF:"'IBM Plex Serif', serif", //GlobalFont
+    aboutbg:'#2debab82',
+    aboutitle:'#0b3426'
 }
