@@ -39,7 +39,9 @@ const NavBar = () => {
                 <Link to="/">
                 <Itemlist onClick={() => scroll_To('Home')} >Home</Itemlist>
                 </Link>
+                <Link to="/about">
                 <Itemlist>About</Itemlist>
+                </Link>
                 <Link to="/contact">
                 <Itemlist>Contact Us</Itemlist>
                 </Link>
@@ -58,7 +60,9 @@ const NavBar = () => {
                 <Link to="/contact">
                     <MenuMobileListItem onClick={()=> setClick(!click)} >Contact Us</MenuMobileListItem>
                     </Link>
+                    <Link to="/about">
                 <MenuMobileListItem onClick={()=> setClick(!click)} >About</MenuMobileListItem>
+                    </Link>
             </MenuMobileList>
         </MenuMobileContainer>
         <ServicesMenu Servicecc={serviceClick} >
