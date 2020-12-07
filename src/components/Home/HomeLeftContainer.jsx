@@ -1,22 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Data } from '../../data/HomePage'
 
 const HomeLeftContainer = () => {
     return (
         <Container>
             <Section data-aos="fade-right" >
             <Title>
-            The Service you Need !!
+            {Data.Home[0].Title}
             </Title>
             <Para>
-            Project0 is The Mobile Bank, helping you manage your 
-            bank account on-the-go, track your expenses and 
-            set aside money in real-time. Open yours in minutes 
-            right from your smartphone, 
-            and start spending before your physical card arrives.
+                {Data.Home[0].Body}
             </Para>
             <AboutButton>
-                About us
+            {Data.Home[0].ButtonText}
             </AboutButton>
             </Section>
         </Container>

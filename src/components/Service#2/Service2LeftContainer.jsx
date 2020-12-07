@@ -1,21 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Data } from '../../data/HomePage'
 
 const Service2LeftContainer = () => {
     return (
         <Container>
             <Section data-aos="fade-up">
                 <Title>
-                Automate Your work flow with the latest Technology in the market !!
+                    {Data.Service_2[0].Title}
                 </Title>
                 <Para>
-                Your standard N26 account comes with all you need to spend, s
-                ave and keep track of your money. 
-                Get a free Mastercard and enjoy free ATM withdrawals in euros 
-                and free payments in any currency,
-                 wherever you are in the 
+                    {Data.Service_2[0].Body}
                 </Para>
-                <GetMore>More Info</GetMore>
+                <GetMore>{Data.Service_2[0].ButtonText}</GetMore>
             </Section>
         </Container>
     )

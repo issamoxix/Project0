@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import bg from '../assets/images/about-bg.jpg'
 import srcx from '../assets/images/abt.png';
+import { AboutData } from '../data/AboutPage';
 import { resc,PicSizec } from '../utils/Resize';
 const per = 12
 PicSizec(per)
@@ -12,19 +13,14 @@ const About = () => {
     return (
         <Container>
             <Wrapper>
-            <AboutTitle>About Project0</AboutTitle>
+            <AboutTitle> {AboutData[0].Title} </AboutTitle>
             <AboutContainer>
                 <AboutEle>
-                <Eles src={srcx}>
-
-                </Eles>
+                <Eles src={srcx} />
                 </AboutEle>
                 <AboutBody>
                     <Para>
-                    Project0 is The Mobile Bank, helping you manage your bank account 
-                    on-the-go, track your expenses and set aside money in real-time.
-                     Open yours in minutes right from your smartphone, 
-                    and start spending before your physical card arrives.
+                    {AboutData[0].Body}
                     </Para>
                 </AboutBody>
             </AboutContainer>

@@ -1,20 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import SSx from '../../assets/images/S1.png'
+import { Data } from '../../data/HomePage'
 const ServiceRightContainer = () => {
     return (
         <Container>
             <Section>
                 <Title>
-                Create Your Personel or Professional Website
+                    {Data.Service_1[0].Title}
                 </Title>
                 <Para>
-                Your standard N26 account comes with all you need to spend, 
-                save and keep track of your money. Get a free Mastercard and enjoy 
-                free ATM withdrawals in euros and free payments in any currency, 
-                wherever you are in the 
+                    {Data.Service_1[0].Body}
                 </Para>
-                <GetMoreButton data-aos="zoom-in" >Learn More</GetMoreButton>
+                <GetMoreButton data-aos="zoom-in" >{Data.Service_1[0].ButtonText}</GetMoreButton>
 
             </Section>
         </Container>

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import img from '../assets/images/City.jpg'
+import { ContactData } from '../data/ContactPage'
 const Contact = () => {
     return (
         <Container>
@@ -8,20 +9,17 @@ const Contact = () => {
                 <Section>
 
                 <Title>
-                CONTACT  US
+                {ContactData[0].Title}
                 </Title>
                 <Seperated />
                 <BodyT>
-                Your standard N26 account comes with all you need to spend, 
-                s ave and keep track of your money.
-                 Get a free Mastercard and enjoy free ATM withdrawals in euros 
-                 and free payments in any currency, 
-                wherever you are in the
+                {ContactData[0].Body}
                 </BodyT>
                 <Seperated />
-                <Det>Address : <Sp>somtthing 2312 oqshd</Sp> </Det>
-                <Det>Phone : <Sp>000-000-XXX</Sp></Det>
-                <Det>Email : <Sp>Project0@prg.com</Sp></Det>
+                
+                <Det>Address : <Sp>{ContactData[0].Address}</Sp> </Det>
+                <Det>Phone : <Sp>{ContactData[0].Phone}</Sp></Det>
+                <Det>Email : <Sp>{ContactData[0].Email}</Sp></Det>
                 </Section>
             </LeftContainer>
             <RightContainer>
