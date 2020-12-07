@@ -6,12 +6,14 @@ import Em from '../assets/images/Emenu.png';
 
 export const scroll_To = (to)=>{
     const elem = document.getElementById(to)
-    if(document.location.pathname === '/') elem.scrollIntoView()
+    if(document.location.pathname === '/') return elem.scrollIntoView()
+    
     
     
 }
 
 const NavBar = () => {
+
     const [Bg,setBg] = useState(false)
     window.onscroll = () => window.scrollY !== 0?setBg(true):setBg(false)
     const [click,setClick] = useState(false);
@@ -39,7 +41,13 @@ const NavBar = () => {
                 <Link to="/contact">
                 <Itemlist>Contact Us</Itemlist>
                 </Link>
-                <Itemlist onClick={() => scroll_To('Service#1')} >Services</Itemlist>
+                <Itemlist  onClick={() => scroll_To('Service#1')} >
+                    Services
+                    <DropboxList>
+                        <DropboxItem onClick={()=>scroll_To('Service#1')} >Create WebSite</DropboxItem>
+                        <DropboxItem onClick={()=>scroll_To('Service#2')} >Automate</DropboxItem>
+                    </DropboxList>    
+                </Itemlist>
             </Listitems>
             <RightSec>
                 <Subscribe bg={Bg} >Subscribe</Subscribe>
@@ -142,6 +150,24 @@ const Listitems = styled.ul`
     display:none;
   }
 `   
+const DropboxList = styled.ul`
+    list-style:none;
+    position:absolute;
+    
+    transition:all 0.2s linear;
+    display:none;
+
+`
+const DropboxItem = styled.li`
+    border-bottom:1px solid #d3d3d3;
+    width:100%;
+    padding:.2rem 1rem;
+    font-family:${({theme})=>theme.gF};
+    font-weight: bold;
+    &:hover {
+        color:#000;
+    }
+`
 const Itemlist = styled.li`
     display:inline-block;
     margin:0 1rem;
@@ -150,6 +176,10 @@ const Itemlist = styled.li`
     transition:all 0.2s linear;
     color:#868686;
     cursor:pointer;
+    &:hover ${DropboxList}:first-child {
+        display:inherit;
+        
+    }
     &:hover {
         color:${({theme})=>theme.p300};
     }
@@ -266,4 +296,5 @@ const ServicesMenu = styled.div`
     }
     
 `
+
 export default NavBar
