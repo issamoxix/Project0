@@ -7,20 +7,31 @@ import Em from '../assets/images/Emenu.png';
 export const scroll_To = (to)=>{
     const elem = document.getElementById(to)
     if(document.location.pathname === '/') return elem.scrollIntoView()
-    
-    
-    
 }
-
 const NavBar = () => {
 
     const [Bg,setBg] = useState(false)
-    window.onscroll = () => window.scrollY !== 0?setBg(true):setBg(false)
+    window.onscroll = () => {
+        if(window.scrollY === 1971){
+            Setfooter(true)
+        }else if (window.scrollY !== 0){
+            setBg(true)
+            Setfooter(false)
+            
+        }else {
+            Setfooter(false)
+            setBg(false)
+        }
+        
+    }
+
     const [click,setClick] = useState(false);
     const [serviceClick ,setServiceClick] = useState(false)
+    // when footer on view set true so the navbar will hide 
+    const[Footer,Setfooter] = useState(false)
     return (
         <>
-        <Container id="NavBar" bg={Bg} >
+        <Container id="NavBar" bg={Bg} FooterV={Footer} >
             <Wrapper>
             <Sec>
             <Link to="/">
@@ -112,6 +123,10 @@ const Container = styled.div`
             `
         }
     }}
+    transform:${props=>{
+        if(props.FooterV === true) return 'translateY(-100%)'
+        return 'translateY(0%)'
+    }};
     display:flex;
     justify-content:space-between;
     padding:12px;

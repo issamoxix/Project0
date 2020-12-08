@@ -8,6 +8,8 @@ import ServiceLeftContainer from '../components/Service#1/ServiceLeftContainer'
 import ServiceRightContainer from '../components/Service#1/ServiceRightContainer'
 import Service2LeftContainer from '../components/Service#2/Service2LeftContainer'
 import Service2RightContainer from '../components/Service#2/Service2RightContainer'
+import LeftContainer from '../components/Footer/LeftContainer'
+import RightContainer from '../components/Footer/RightContainer'
 const Home = () => {
     return (
         <>
@@ -24,6 +26,10 @@ const Home = () => {
             <Service2LeftContainer />
             <Service2RightContainer />
         </Container>
+        <FooterContainer id="Footer">
+            <LeftContainer />
+            <RightContainer />
+        </FooterContainer>
         </>
     )
 }
@@ -36,6 +42,10 @@ const Container = styled.div`
     width:100vw;
     flex-direction:column;
   }
+`
+const FooterContainer = styled(Container)`
+    background:${({theme})=>theme.p500};
+    padding:.6rem .6rem 0 .6rem;
 `
 const NextPic = styled.img`
     position:absolute;
