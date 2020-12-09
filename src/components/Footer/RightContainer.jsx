@@ -1,8 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import msg from '../../assets/images/msg.png'
+import { PicSizec, resc } from '../../utils/Resize'
 
 const RightContainer = () => {
+    const per = 40
+    const FSi = PicSizec(per)
+    resc(FSi,per)
     return (
         <Container>
             <SubscribContainer>
@@ -36,7 +40,7 @@ const RightContainer = () => {
                 </Content>
               
             </SiteMapContainer>
-            <FooterPic src={msg} />
+            <FooterPic src={msg} Pi={FSi} />
         </Container> 
     )
 }
@@ -48,6 +52,9 @@ const Container = styled.div`
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    @media(max-width:600px){
+        flex:1;
+    }
     
 `
 const SubscribContainer = styled.section`
@@ -100,6 +107,11 @@ const SuscribetextF = styled.input.attrs(props =>({
 `
 const SubscribeForm = styled.div`
     width:70%;
+    @media(max-width:1000px){
+        width:100%;
+        display: flex;
+        justify-content: center;
+    }
 `
 const SiteMapContainer = styled.div`
     display:flex;
@@ -107,7 +119,9 @@ const SiteMapContainer = styled.div`
     width:100%;
 `
 const FooterPic = styled.img`
-
+    @media(max-width:1000px){
+        height:${props=>props.Pi}px;
+    }
 `
 const Content = styled.div`
     display:flex;
