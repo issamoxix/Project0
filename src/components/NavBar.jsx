@@ -54,10 +54,6 @@ const NavBar = () => {
                 </Link>
                 <Itemlist  onClick={() => scroll_To('Service#1')} >
                     Services
-                    <DropboxList>
-                        <DropboxItem onClick={()=>scroll_To('Service#1')} >Create WebSite</DropboxItem>
-                        <DropboxItem onClick={()=>scroll_To('Service#2')} >Automate</DropboxItem>
-                    </DropboxList>    
                 </Itemlist>
             </Listitems>
             <RightSec>
@@ -165,24 +161,7 @@ const Listitems = styled.ul`
     display:none;
   }
 `   
-const DropboxList = styled.ul`
-    list-style:none;
-    position:absolute;
-    
-    transition:all 0.2s linear;
-    display:none;
 
-`
-const DropboxItem = styled.li`
-    border-bottom:1px solid #d3d3d3;
-    width:100%;
-    padding:.2rem 1rem;
-    font-family:${({theme})=>theme.gF};
-    font-weight: bold;
-    &:hover {
-        color:#000;
-    }
-`
 const Itemlist = styled.li`
     display:inline-block;
     margin:0 1rem;
@@ -191,10 +170,6 @@ const Itemlist = styled.li`
     transition:all 0.2s linear;
     color:#868686;
     cursor:pointer;
-    &:hover ${DropboxList}:first-child {
-        display:inherit;
-        
-    }
     &:hover {
         color:${({theme})=>theme.p300};
     }
